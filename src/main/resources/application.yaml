@@ -19,6 +19,8 @@ spring:
               uri: lb://bff-service
               predicates:
                 - Path=/**
+              filters:
+                - PreserveHostHeader
 
 eureka:
   client:
