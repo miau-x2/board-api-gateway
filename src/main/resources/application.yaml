@@ -13,12 +13,14 @@ spring:
             - id: auth-service
               uri: lb://auth-service
               predicates:
-                - Path=/auth/**,/oauth2/**,/.well-known/**
+                - Path=/auth/**
 
             - id: bff-service
               uri: lb://bff-service
               predicates:
                 - Path=/**
+              filters:
+                - PreserveHostHeader
 
 eureka:
   client:
